@@ -1,3 +1,25 @@
+Changes in Version 0.11-1
+
+  o Enhanced raschtree() functionality, introduced in detail
+    in the new vignette("raschtree", package = "psychotree").
+  
+  o Added subsample from SPIEGEL Studentenpisa (SPISA) quiz
+    for students from Bavaria that answered the same set of
+    questions.
+    
+  o Added artificial data set DIFSim exhibiting differential
+    item functioning, employed for illustrating Rasch trees.
+    
+
+Changes in Version 0.9-1
+
+  o Added raschtree() function, based on simple RaschModel()
+    (for binary 0/1 items).
+
+  o Some bug fixes (subsets with missing drop = FALSE) for paircomp()
+    and bttree() with only two objects
+    
+
 Changes in Version 0.9-0
 
   o First CRAN release of the package accompanying the forthcoming
