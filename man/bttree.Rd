@@ -28,7 +28,7 @@ bttree(formula, data, na.action = na.pass,
 \arguments{
   \item{formula}{A symbolic description of the model to be fit. This
     should be of type \code{y ~ x1 + x2}
-    where \code{y} should be an object of class \code{\link[psychotree]{paircomp}}
+    where \code{y} should be an object of class \code{\link[psychotools]{paircomp}}
     and \code{x1} and \code{x2} are used as partitioning variables.}
   \item{data}{an optional data frame containing the variables in the model.}
   \item{na.action}{A function which indicates what should happen when the data
@@ -44,7 +44,7 @@ bttree(formula, data, na.action = na.pass,
   paired comparison data (implemented in \code{\link{btReg}}).
   For all details about the underlying theory and further explanations
   of the illustrations from the example section can be found in
-  Strobl, Wickelmaier, Zeileis (2010).
+  Strobl, Wickelmaier, Zeileis (2011).
   
   Various methods are provided for \code{"bttree"} objects, most of them
   inherit their behavior from \code{"mob"} objects (e.g., \code{print}, \code{summary},
@@ -60,10 +60,10 @@ bttree(formula, data, na.action = na.pass,
 }
 
 \references{ 
-  Carolin Strobl, Florian Wickelmaier, Achim Zeileis (2010). 
+  Carolin Strobl, Florian Wickelmaier, Achim Zeileis (2011). 
   Accounting for Individual Differences in Bradley-Terry Models by Means of Recursive Partitioning.
-  Journal of Educational and Behavioral Statistics, Forthcoming.
-  Preprint at \url{http://statmath.wu.ac.at/~zeileis/papers/Strobl+Wickelmaier+Zeileis-2010.pdf}
+  Journal of Educational and Behavioral Statistics, 36(2), 135-153.
+  doi:10.3102/1076998609359791
 }
 
 \seealso{\code{\link[party]{mob}}, \code{\link{btReg}}}
