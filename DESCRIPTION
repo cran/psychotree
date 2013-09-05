@@ -1,7 +1,7 @@
 Package: psychotree
 Title: Recursive Partitioning Based on Psychometric Models
-Version: 0.12-2
-Date: 2012-10-23
+Version: 0.12-3
+Date: 2013-09-05
 Authors@R: c(person(given = "Achim", family = "Zeileis", role =
         c("aut", "cre"), email = "Achim.Zeileis@R-project.org"),
         person(given = "Carolin", family = "Strobl", role = "aut",
@@ -10,16 +10,19 @@ Authors@R: c(person(given = "Achim", family = "Zeileis", role =
         "Florian.Wickelmaier@uni-tuebingen.de"), person(given =
         "Julia", family = "Kopf", role = "aut", email =
         "Julia.Kopf@stat.uni-muenchen.de"))
-Depends: R (>= 2.10.0), stats, psychotools, party, strucchange,
-        modeltools
-Imports: graphics, stats, psychotools, sandwich
+Depends: R (>= 2.10.0), party, psychotools
+Suggests: colorspace
+Imports: graphics, stats, modeltools (>= 0.2-21), sandwich, strucchange
 Description: Recursive partitioning based on psychometric models,
         employing the general MOB algorithm (from package party) to
         obtain Bradley-Terry trees and Rasch trees.
 License: GPL-2
-Packaged: 2012-10-23 08:17:55 UTC; zeileis
-Author: Achim Zeileis [aut, cre], Carolin Strobl [aut], Florian
-        Wickelmaier [aut], Julia Kopf [aut]
+Packaged: 2013-09-05 06:25:35 UTC; zeileis
+Author: Achim Zeileis [aut, cre],
+  Carolin Strobl [aut],
+  Florian Wickelmaier [aut],
+  Julia Kopf [aut]
 Maintainer: Achim Zeileis <Achim.Zeileis@R-project.org>
+NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2012-10-23 09:12:56
+Date/Publication: 2013-09-05 08:39:44
