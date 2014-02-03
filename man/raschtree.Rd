@@ -22,8 +22,8 @@
 }
 
 \usage{
-raschtree(formula, data, minsplit = 10, gradtol = 1e-6,
-  deriv = c("sum", "diff", "numeric"), \dots)
+raschtree(formula, data, minsplit = 10, reltol = 1e-10,
+  deriv = c("sum", "diff", "numeric"), hessian = TRUE, maxit = 100L, \dots)
 }
 
 \arguments{
@@ -36,8 +36,11 @@ raschtree(formula, data, minsplit = 10, gradtol = 1e-6,
     gradient and Hessian matrix? Analytical with sum algorithm (\code{"sum"}),
     analytical with difference algorithm (\code{"diff"}, faster but numerically unstable),
     or numerical. Passed to \code{\link{RaschModel}}.}
-  \item{gradtol}{numeric tolerance passed to \code{\link{RaschModel}}
-    and on to \code{\link[stats]{nlm}}.}
+  \item{hessian}{logical. Should the Hessian of the final model be computed?
+    If set to \code{FALSE}, the \code{vcov} method can only return \code{NA}s
+    and consequently no standard errors or tests are available in the \code{summary}.}
+  \item{reltol, maxit}{arguments passed via \code{\link{RaschModel}}
+    to \code{\link[stats]{optim}}.}
   \item{minsplit, \dots}{arguments passed to \code{\link[party]{mob_control}}.}
 }
 
@@ -61,10 +64,9 @@ raschtree(formula, data, minsplit = 10, gradtol = 1e-6,
 }
 
 \references{
-  Strobl, C., Kopf, J., and Zeileis, A. (2010). A New Method for Detecting
-  Differential Item Functioning in the Rasch Model. Technical Report 92.
-  Department of Statistics, Ludwig-Maximilians-Universität München.
-  \url{http://epub.ub.uni-muenchen.de/11915/}
+  Strobl, C., Kopf, J., and Zeileis, A. (2010). Rasch Trees:
+  A New Method for Detecting Differential Item Functioning in the Rasch
+  Model. Psychometrika, forthcoming. doi:10.1007/s11336-013-9388-3
 }
 
 \value{
@@ -73,14 +75,15 @@ raschtree(formula, data, minsplit = 10, gradtol = 1e-6,
   exported from the party package).
 }
 
-\seealso{\code{\link[party]{mob}}, \code{\link{RaschModel}}, \code{\link{bttree}}}
+\seealso{\code{\link[party]{mob}}, \code{\link{RaschModel}},
+  \code{\link{rstree}}, \code{\link{pctree}}}
 
 \examples{
 ## artificial data
 data("DIFSim", package = "psychotree")
 
 ## fit Rasch tree model
-rt <- raschtree(resp ~ age + gender + motivation, data = DIFSim)
+rt <- raschtree(resp ~ age + gender + motivation, data = DIFSim, minsplit = 30)
 plot(rt)
 
 ## extract item parameters

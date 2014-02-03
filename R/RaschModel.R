@@ -1,5 +1,6 @@
 ## S4 StatModel object
-RaschModel <- function(gradtol = 1e-6, deriv = c("sum", "diff", "numeric"), hessian = TRUE) {
+RaschModel <- function(reltol = 1e-10, deriv = c("sum", "diff", "numeric"),
+                       hessian = TRUE, maxit = 100L) {
   new("StatModel",
     capabilities = new("StatModelCapabilities"),
     name = "Rasch model",
@@ -10,8 +11,8 @@ RaschModel <- function(gradtol = 1e-6, deriv = c("sum", "diff", "numeric"), hess
         y <- object@get("response")
 
         ## call RaschModel.fit()
-        z <- RaschModel.fit(y = y, weights = weights, gradtol = gradtol,
-	  deriv = deriv, hessian = hessian)
+        z <- RaschModel.fit(y = y, weights = weights, reltol = reltol,
+	  deriv = deriv, hessian = hessian, maxit = maxit)
         z$ModelEnv <- object
         z$addargs <- list(...)
         z
@@ -21,7 +22,8 @@ RaschModel <- function(gradtol = 1e-6, deriv = c("sum", "diff", "numeric"), hess
 
 ## methods needed for mob()
 reweight.RaschModel <- function(object, weights, ...) {
-     fit <- RaschModel(gradtol = object$gradtol)@fit
+     deriv <- if(is.null(object$deriv)) "sum" else object$deriv
+     fit <- RaschModel(reltol = object$reltol, deriv = deriv)@fit
      do.call("fit", c(list(object = object$ModelEnv, weights = weights), object$addargs))
 }
 

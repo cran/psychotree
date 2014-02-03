@@ -4,6 +4,7 @@
 
 \alias{plot.bttree}
 \alias{print.bttree}
+\alias{predict.bttree}
 \alias{summary.bttree}
 \alias{sctest.bttree}
 
@@ -23,6 +24,9 @@
 bttree(formula, data, na.action = na.pass,
   type = "loglin", ref = NULL, undecided = NULL, position = NULL,
   minsplit = 10, \dots)
+
+\method{predict}{bttree}(object, newdata = NULL,
+  type = c("worth", "rank", "node"), \dots)
 }
 
 \arguments{
@@ -33,17 +37,25 @@ bttree(formula, data, na.action = na.pass,
   \item{data}{an optional data frame containing the variables in the model.}
   \item{na.action}{A function which indicates what should happen when the data
     contain \code{NA}s, defaulting to \code{\link[stats]{na.pass}}.}
-  \item{type, ref, undecided, position}{arguments for the Bradley-Terry
+  \item{type}{character indicating the type of auxiliary model in \code{bttree} and the
+    type of predictions in the \code{predict} method, respectively. For the auxiliary
+    model see \code{\link{btReg}}. For the \code{predict} method, three options are
+    available: the fitted \code{"worth"} for each alternative, the corresponding
+    \code{"rank"}, or the predicted \code{"node"} number.}
+  \item{ref, undecided, position}{arguments for the Bradley-Terry
     model passed on to \code{\link{btReg}}.}
   \item{minsplit, \dots}{arguments passed to \code{\link[party]{mob_control}}.}
+  \item{object}{fitted model object of class \code{"bttree"}.}
+  \item{newdata}{optionally, a data frame in which to look for variables with
+    which to predict. If omitted, the original observations are used.}
 }
 
 \details{
   Bradley-Terry tree models are an application of model-based recursive partitioning
   (implemented in \code{\link[party]{mob}}) to Bradley-Terry models for
   paired comparison data (implemented in \code{\link{btReg}}).
-  For all details about the underlying theory and further explanations
-  of the illustrations from the example section can be found in
+  Details about the underlying theory and further explanations of the
+  illustrations in the example section can be found in
   Strobl, Wickelmaier, Zeileis (2011).
   
   Various methods are provided for \code{"bttree"} objects, most of them
@@ -60,8 +72,8 @@ bttree(formula, data, na.action = na.pass,
 }
 
 \references{ 
-  Carolin Strobl, Florian Wickelmaier, Achim Zeileis (2011). 
-  Accounting for Individual Differences in Bradley-Terry Models by Means of Recursive Partitioning.
+  Strobl, C., Wickelmaier, F., and Zeileis, A. (2011). Accounting for
+  Individual Differences in Bradley-Terry Models by Means of Recursive Partitioning.
   Journal of Educational and Behavioral Statistics, 36(2), 135-153.
   doi:10.3102/1076998609359791
 }
