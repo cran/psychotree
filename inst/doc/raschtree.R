@@ -77,8 +77,8 @@ coef(my_first_raschtree, node = 4)
 
 
 ###################################################
-### code chunk number 12: worth_raschtree
+### code chunk number 12: itempar_raschtree
 ###################################################
-worth(my_first_raschtree, node = 4)
+itempar(my_first_raschtree, node = 4)
 
 

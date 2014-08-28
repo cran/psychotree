@@ -1,3 +1,21 @@
+Changes in Version 0.14-0
+
+  o Internals of package psychotree completely reorganized to employ
+    the recent additions and changes in psychotools (>= 0.3-0) and
+    to use the new partykit (>= 0.2-0) implementation of the mob()
+    function (rather than the old party implementation).
+
+  o The handling of argument 'ref' when producing a region/effect
+    plot was changed. Whereas in the previous implementation,
+    the restriction specified in this argument was applied to
+    the cumulative absolute item threshold parameters, it now is
+    applied to the absolute item threshold parameters.
+
+  o New panel-generating visualization functions 'node_profileplot'
+    and 'node_regionplot' have been added which replace the old 
+    functions 'node_raschplot' and 'node_effects'. 
+
+
 Changes in Version 0.13-0
 
   o New functionality for recursive partitioning of partial credit

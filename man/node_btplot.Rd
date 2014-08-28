@@ -11,14 +11,13 @@
 \usage{
 node_btplot(mobobj, id = TRUE,
   worth = TRUE, names = TRUE, abbreviate = TRUE, index = TRUE, ref = TRUE,
-  col = "black", linecol = "lightgray", cex = 0.5, pch = 19,
+  col = "black", refcol = "lightgray", cex = 0.5, pch = 19,
   xscale = NULL, yscale = NULL, ylines = 1.5)
-
 }
 
 \arguments{
   \item{mobobj}{an object of class \code{"mob"} based on Bradley-Terry models
-    fitted by \code{\link{btReg}}.}
+    fitted by \code{\link[psychotools]{btmodel}}.}
   \item{id}{logical. Should the node ID be displayed?}
   \item{worth}{logical. Should worth parameters (or their logs) be visualized?}
   \item{names}{logical. Should the names for the objects be displayed?}
@@ -27,7 +26,7 @@ node_btplot(mobobj, id = TRUE,
   \item{index}{logical. Should different indexes for different stimuli be used?}
   \item{ref}{logical. Should a horizontal line for the reference level be drawn?}
   \item{col, cex, pch}{graphical appearance of plotting symbols.}
-  \item{linecol}{line color for reference line (if \code{ref}).}
+  \item{refcol}{line color for reference line (if \code{ref}).}
   \item{xscale, yscale}{x and y axis limits.}
   \item{ylines}{numeric. Number of lines used for y-axis labels.}
 }
