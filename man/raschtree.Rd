@@ -6,10 +6,10 @@
 \alias{predict.raschtree}
 \alias{itempar.raschtree}
 
-\title{Rasch Tree Models}
+\title{Rasch Trees}
 
 \description{
-  Recursive partitioning based on Rasch models.
+  Recursive partitioning (also known as trees) based on Rasch models.
 }
 
 \usage{
@@ -58,7 +58,7 @@ raschtree(formula, data, na.action,
 }
 
 \details{
-  Rasch tree models are an application of model-based recursive partitioning
+  Rasch trees are an application of model-based recursive partitioning
   (implemented in \code{\link[partykit]{mob}}) to Rasch models
   (implemented in \code{\link[psychotools]{raschmodel}}).
   
@@ -71,16 +71,17 @@ raschtree(formula, data, na.action,
   by default employs the \code{\link{node_profileplot}} panel-generating function and
   the \code{\link{node_regionplot}} panel-generating function is provided as an alternative.
 
-  Rasch tree models are introduced in Strobl et al. (2014), whose analysis
+  Rasch tree models are introduced in Strobl et al. (2015), whose analysis
   for the \code{\link{SPISA}} data is replicated in
   \code{vignette("raschtree", package = "psychotree")}. Their illustration
   employing artificial data is replicated below.
 }
 
 \references{
-  Strobl C, Kopf J, Zeileis A (2014). Rasch Trees:
-  A New Method for Detecting Differential Item Functioning in the Rasch
-  Model. \emph{Psychometrika}, forthcoming. doi:10.1007/s11336-013-9388-3
+Strobl C, Kopf J, Zeileis A (2015). Rasch Trees: A New Method for Detecting
+  Differential Item Functioning in the Rasch Model.
+  \emph{Psychometrika}, \bold{80}(2), 289--316.
+  \doi{10.1007/s11336-013-9388-3}
 }
 
 \value{

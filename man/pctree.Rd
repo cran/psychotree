@@ -7,10 +7,10 @@
 \alias{itempar.pctree}
 \alias{threshpar.pctree}
 
-\title{Partial Credit Tree Models}
+\title{Partial Credit Trees}
 
 \description{
-  Recursive partitioning based on partial credit models.
+  Recursive partitioning (also known as trees) based on partial credit models.
 }
 
 \usage{
@@ -62,7 +62,7 @@ pctree(formula, data, na.action, nullcats = c("keep", "downcode", "ignore"),
 
 
 \details{
-  Partial credit tree models are an application of model-based recursive partitioning
+  Partial credit trees are an application of model-based recursive partitioning
   (implemented in \code{\link[partykit]{mob}}) to partial credit models
   (implemented in \code{\link[psychotools]{pcmodel}}).
   
@@ -77,11 +77,9 @@ pctree(formula, data, na.action, nullcats = c("keep", "downcode", "ignore"),
 }
 
 \references{
-  Abou El-Komboz B, Zeileis A, Strobl C (2014). Detecting
-  Differential Item and Step Functioning with Rating Scale and Partial
-  Credit Trees. Technical Report 152. Department of Statistics,
-  Ludwig-Maximilians-Universitaet Muenchen.
-  \url{http://epub.ub.uni-muenchen.de/17984/}
+Komboz B, Zeileis A, Strobl C (2016).
+  Tree-Based Global Model Tests for Polytomous Rasch Models.
+  \emph{Educational and Psychological Measurement}, forthcoming.
 }
 
 \value{
@@ -127,6 +125,13 @@ library("strucchange")
 sctest(pct, node = 1)
 
 options(digits = o$digits)
+
+\donttest{
+## partial credit tree on artificial data from Komboz et al. (2016)
+data("DIFSimPC", package = "psychotree")
+pct2 <- pctree(resp ~ gender + age + motivation, data = DIFSimPC)
+plot(pct2, ylim = c(-4.5, 4.5), names = paste("I", 1:8))
+}
 }
 
 \keyword{tree}
