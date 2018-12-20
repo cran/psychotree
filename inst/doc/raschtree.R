@@ -1,5 +1,5 @@
 ### R code from vignette source 'raschtree.Rnw'
-### Encoding: ASCII
+### Encoding: UTF-8
 
 ###################################################
 ### code chunk number 1: prep_install (eval = FALSE)

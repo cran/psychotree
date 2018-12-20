@@ -2,6 +2,7 @@
 
 \alias{mpttree}
 
+\alias{coef.mpttree}
 \alias{plot.mpttree}
 \alias{print.mpttree}
 \alias{predict.mpttree}
@@ -37,7 +38,7 @@ mpttree(formula, data, na.action, cluster, spec, treeid = NULL,
 }
 
 \details{
-  MPT trees (Wickelmaier & Zeileis, 2016) are an application of
+  MPT trees (Wickelmaier & Zeileis, 2018) are an application of
   model-based recursive partitioning (implemented in
   \code{\link[partykit]{mob}}) to MPT models (implemented in
   \code{\link[psychotools]{mptmodel}}).
@@ -54,11 +55,10 @@ mpttree(formula, data, na.action, cluster, spec, treeid = NULL,
 }
 
 \references{ 
-Wickelmaier F, Zeileis A (2016). \dQuote{Using Recursive Partitioning to Account
-  for Parameter Heterogeneity in Multinomial Processing Tree Models}.
-  Working Paper 2016-26. Working Papers in Economics and Statistics,
-  Research Platform Empirical and Experimental Economics, Universität Innsbruck.
-  \url{http://EconPapers.RePEc.org/RePEc:inn:wpaper:2016-26}
+Wickelmaier F, Zeileis A (2018). Using Recursive Partitioning to Account
+  for Parameter Heterogeneity in Multinomial Processing Tree Models.
+  \emph{Behavior Research Methods}, \bold{50}(3), 1217--1233.
+  \doi{10.3758/s13428-017-0937-z}
 }
 
 \seealso{\code{\link[partykit]{mob}}, \code{\link[psychotools]{mptmodel}}.}
@@ -67,7 +67,7 @@ Wickelmaier F, Zeileis A (2016). \dQuote{Using Recursive Partitioning to Account
 o <- options(digits = 4)
 
 ## Source Monitoring data
-data("SourceMonitoring", package="psychotools")
+data("SourceMonitoring", package = "psychotools")
 
 ## MPT tree
 sm_tree <- mpttree(y ~ sources + gender + age, data = SourceMonitoring,

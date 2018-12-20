@@ -62,10 +62,10 @@ predict.bttree <- function(object, newdata = NULL,
   if(is.null(newdata)) newdata <- model.frame(object)
   
   pred <- switch(type,
-    "worth" = worth,
-    "rank" = function(obj, ...) rank(-worth(obj)),
+    "worth" = function(obj, ...) rbind(itempar(obj)),
+    "rank" = function(obj, ...) rbind(rank(-itempar(obj))),
     "best" = function(obj, ...) {
-      wrth <- worth(obj)
+      wrth <- itempar(obj)
       factor(names(wrth)[which.max(wrth)], levels = names(wrth))
     }
   )

@@ -1,8 +1,9 @@
 Package: psychotree
 Title: Recursive Partitioning Based on Psychometric Models
-Version: 0.15-1
-Date: 2016-09-09
-Authors@R: c(person(given = "Achim", family = "Zeileis", role = c("aut", "cre"), email = "Achim.Zeileis@R-project.org"),
+Version: 0.15-2
+Date: 2018-12-20
+Authors@R: c(person(given = "Achim", family = "Zeileis", role = c("aut", "cre"), email = "Achim.Zeileis@R-project.org",
+                    comment = c(ORCID = "0000-0003-0918-3766")),
              person(given = "Carolin", family = "Strobl", role = "aut", email = "Carolin.Strobl@psychologie.uzh.ch"),
              person(given = "Florian", family = "Wickelmaier", role = "aut"),
              person(given = "Basil", family = "Komboz", role = "aut"),
@@ -16,12 +17,12 @@ Description: Recursive partitioning based on psychometric models,
   MPT trees.
 License: GPL-2 | GPL-3
 NeedsCompilation: no
-Packaged: 2016-09-09 08:26:42 UTC; zeileis
-Author: Achim Zeileis [aut, cre],
+Packaged: 2018-12-20 02:51:33 UTC; zeileis
+Author: Achim Zeileis [aut, cre] (<https://orcid.org/0000-0003-0918-3766>),
   Carolin Strobl [aut],
   Florian Wickelmaier [aut],
   Basil Komboz [aut],
   Julia Kopf [aut]
 Maintainer: Achim Zeileis <Achim.Zeileis@R-project.org>
 Repository: CRAN
-Date/Publication: 2016-09-09 12:48:25
+Date/Publication: 2018-12-20 06:49:35 UTC

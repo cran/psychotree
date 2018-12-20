@@ -1,3 +1,25 @@
+Changes in Version 0.15-2
+
+  o The method behind mpttree() has now been published by 
+    Behavior Research Methods, see doi:10.3758/s13428-017-0937-z
+
+  o The predict() method for "bttree" objects works again correctly for
+    type = "parameter" (previously called type = "worth") and type = "rank".
+    Thanks to Heather Turner for pointing out the problem.
+
+  o node_btplot() used to fail for worth=FALSE or ref=<character> but works
+    now correctly again. Thanks to Heather Turner for pointing out the problem.
+    Also ref=<character> now either matches to <object>$labels or (if not available)
+    to colnames(<coefficients>) to facilitate usage with the PlackettLuce
+    package.
+
+  o node_regionplot() now also works correctly on devices with a default white
+    (rather than transparent) background such as png or jpeg.
+
+  o node_* panel functions gained bg = "white" argument to enable different
+    background filling color.
+
+
 Changes in Version 0.15-1
 
   o The recently added mpttree() function is now accompanied by a working

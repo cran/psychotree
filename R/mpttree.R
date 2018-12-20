@@ -39,9 +39,9 @@ mptfit <- function(y, x = NULL, start = NULL, weights = NULL, offset = NULL,
   rval <- mptmodel(y, weights = weights, ..., vcov = object)
   rval <- list(
     # coefficients = rval$coefficients,
-    coefficients = coef(rval),
+    coefficients = coef(rval, logit = FALSE),
     objfun = -rval$loglik,
-    estfun = if(estfun) estfun.mptmodel(rval) else NULL,
+    estfun = if(estfun) estfun.mptmodel(rval, logit = TRUE) else NULL,
     object = if(object) rval else NULL
   )
   return(rval)
@@ -86,3 +86,17 @@ plot.mpttree <- function(x, terminal_panel = node_mptplot,
   partykit::plot.modelparty(x, terminal_panel = terminal_panel,
     tp_args = tp_args, tnex = tnex, drop_terminal = drop_terminal, ...)
 }
+
+## adapted from coef.modelparty() to allow for coef(..., logit = TRUE)
+coef.mpttree <- function(object, node = NULL, drop = TRUE, ...) 
+{
+  if (is.null(node)) 
+    node <- nodeids(object, terminal = TRUE)
+  cf <- do.call("rbind",
+                nodeapply(object, ids = node, FUN = function(n)
+                          coef(info_node(n)$object, ...)))
+  if (drop) 
+    drop(cf)
+  else cf
+}
+
