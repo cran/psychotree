@@ -98,6 +98,7 @@ Komboz B, Zeileis A, Strobl C (2018).
   \code{\link{pctree}}, \code{\link{raschtree}}}
 
 \examples{
+## IGNORE_RDIFF_BEGIN
 o <- options(digits = 4)
 
 ## verbal aggression data from package psychotools
@@ -129,11 +130,13 @@ itempar(rst)
 threshpar(rst)
 
 ## inspect parameter stability tests in all splitting nodes
-library("strucchange")
+if(require("strucchange")) {
 sctest(rst, node = 1)
 sctest(rst, node = 2)
+}
 
 options(digits = o$digits)
+## IGNORE_RDIFF_END
 }
 
 \keyword{tree}
