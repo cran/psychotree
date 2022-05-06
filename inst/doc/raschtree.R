@@ -93,9 +93,9 @@ itempar(my_first_raschtree, node = 4)
 
 
 ###################################################
-### code chunk number 15: raschtree.Rnw:322-323
+### code chunk number 15: raschtree.Rnw:322-323 (eval = FALSE)
 ###################################################
-library("stablelearner")
+## library("stablelearner")
 
 
 ###################################################
@@ -108,12 +108,24 @@ library("stablelearner")
 ###################################################
 ### code chunk number 17: stabletree_fit
 ###################################################
+if(require("stablelearner", quietly = TRUE)) {
+
 if(!file.exists("my_first_raschtree_st.Rdata")){
 set.seed(4321)
 my_first_raschtree_st <- stabletree(my_first_raschtree, B = 50)
 save(my_first_raschtree_st, file = "my_first_raschtree_st.Rdata")
 } else{
 load("my_first_raschtree_st.Rdata")
+}
+
+spon1 <- summary(my_first_raschtree_st)$vstab["spon", 1]
+spon3 <- summary(my_first_raschtree_st)$vstab["spon", 3]
+
+} else {
+
+my_first_raschtree_st <- matrix(1)
+spon1 <- spon3 <- 0
+
 }
 
 

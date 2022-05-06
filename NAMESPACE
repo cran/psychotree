@@ -14,6 +14,7 @@ importFrom("grid",
 )
 importFrom("grDevices", "extendrange", "gray.colors")
 
+## exported functions
 export(
   ## trees
   "raschtree",
@@ -21,6 +22,8 @@ export(
   "pctree",
   "bttree",
   "mpttree",
+  "npltree",
+  "gpcmtree",
 
   ## panel-generating visualization functions
   "node_profileplot",
@@ -60,3 +63,18 @@ S3method("coef", "mpttree")
 S3method("plot", "mpttree")
 S3method("print", "mpttree")
 
+## methods for npltree objects
+S3method("plot", "npltree")
+S3method("print", "npltree")
+S3method("itempar", "npltree")
+S3method("threshpar", "npltree")
+S3method("guesspar", "npltree")
+S3method("upperpar", "npltree")
+
+## methods for gpcmtree objects
+S3method("plot", "gpcmtree")
+S3method("print", "gpcmtree")
+S3method("itempar", "gpcmtree")
+S3method("threshpar", "gpcmtree")
+S3method("guesspar", "gpcmtree")
+S3method("upperpar", "gpcmtree")

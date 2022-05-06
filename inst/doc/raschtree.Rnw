@@ -319,7 +319,7 @@ install.packages("stablelearner")
 
 and then activated (each time) for the current session using
 
-<<>>=
+<<eval=FALSE>>=
 library("stablelearner")
 @
 
@@ -339,13 +339,25 @@ Even if in the original tree all nodes were big enough to estimate the model, du
 In order to prevent this, the minimum node size \code{minsize} needs to be increased already in the \code{raschtree} command (cf.~Section \ref{raschtree}), before applying \code{stabletree},
 because the settings of the original \rt\ are passed on to \code{stabletree}.
 
-<<stabletree_fit, echo=FALSE>>=
+<<stabletree_fit, echo=FALSE, results=hide>>=
+if(require("stablelearner", quietly = TRUE)) {
+
 if(!file.exists("my_first_raschtree_st.Rdata")){
 set.seed(4321)
 my_first_raschtree_st <- stabletree(my_first_raschtree, B = 50)
 save(my_first_raschtree_st, file = "my_first_raschtree_st.Rdata")
 } else{
 load("my_first_raschtree_st.Rdata")
+}
+
+spon1 <- summary(my_first_raschtree_st)$vstab["spon", 1]
+spon3 <- summary(my_first_raschtree_st)$vstab["spon", 3]
+
+} else {
+
+my_first_raschtree_st <- matrix(1)
+spon1 <- spon3 <- 0
+
 }
 @
 %
@@ -360,8 +372,8 @@ A relative variable selection frequency of one means that a variable was selecte
 The average number of splits can show values greater than 1 if the same variable is used more than once in the same tree. 
 The asterisk columns indicate whether this variable was selected in the original tree, and how often.
 For example, the variable \code{gender} was selected as a splitting variable once in every tree, including the original tree.
-The variable \code{spon}, on the other had, was selected in \Sexpr{100 * summary(my_first_raschtree_st)$vstab["spon", 1]}\% of the trees,
-also in the orignal tree, on average \Sexpr{summary(my_first_raschtree_st)$vstab["spon", 3]} times, but twice in the original tree. 
+The variable \code{spon}, on the other had, was selected in \Sexpr{100 * spon1}\% of the trees,
+also in the orignal tree, on average \Sexpr{spon3} times, but twice in the original tree. 
 
 By using \code{barplot}, we can also visualize the variable selection frequencies:
 %
