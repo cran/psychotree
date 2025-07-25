@@ -1,3 +1,8 @@
+## psychotree 0.16-2
+
+* Improve non-anchored links in manual pages (prompted by CRAN).
+
+
 ## psychotree 0.16-1
 
 * Make sure that `mob()` from `partykit` (rather than `party`) is called by all
